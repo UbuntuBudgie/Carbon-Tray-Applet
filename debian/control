@@ -4,12 +4,13 @@ Priority: optional
 Maintainer: David Mohammed <fossfreedom@ubuntu.com>
 Build-Depends: debhelper (>= 13),
                debhelper-compat (= 13),
-               dpkg-dev,
                libgtk-3-dev,
                libpeas-dev,
                budgie-core-dev,
                valac,
-               meson
+               meson,
+               intltool
+Rules-Requires-Root: no
 Standards-Version: 4.6.0
 Homepage: https://github.com/ubuntubudgie/budgie-carbon-tray-applet
 Vcs-Browser: https://github.com/UbuntuBudgie/budgie-carbon-tray/tree/debian
