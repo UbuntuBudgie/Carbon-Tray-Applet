@@ -1,9 +1,15 @@
 # Carbon-Tray-Applet
-Budgie Applet that displays GtkStatusIcon (xembed) icons
+Budgie Applet that displays GtkStatusIcon (xembed) icons.  This applet is only applicable for budgie-desktop v10.8 and later.
 
 Original source from github.com/buddiesofbudgie/budgie-desktop forked at v10.7.2
 
 <img src="./screenshots/nemo-carbon.png"/>
+
+This applet supports legacy applications that currently do not have StatusNotifier / AppIndicator support.  These apps will no longer display panel icons in a future budgie desktop where Wayland will be the default.
+
+We encourage everyone to help update these legacy applications to display panel icons with a more modern display protocol such as StatusNotifier.
+
+xembed icons also do not scale and will look out of place on a modern budgie panel.
 
 ## Dependencies
 
