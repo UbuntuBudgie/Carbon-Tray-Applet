@@ -1,0 +1,27 @@
+Source: budgie-carbon-tray-applet
+Section: misc
+Priority: optional
+Maintainer: David Mohammed <fossfreedom@ubuntu.com>
+Build-Depends: debhelper (>= 13),
+               debhelper-compat (= 13),
+               dpkg-dev,
+               libgtk-3-dev,
+               libpeas-dev,
+               budgie-core-dev,
+               valac,
+               meson
+Standards-Version: 4.6.0
+Homepage: https://github.com/ubuntubudgie/budgie-carbon-tray-applet
+Vcs-Browser: https://github.com/UbuntuBudgie/budgie-carbon-tray/tree/debian
+Vcs-Git: https://github.com/UbuntuBudgie/budgie-carbon-tray-applet -b debian
+
+Package: budgie-carbon-tray-applet
+Architecture: any
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: Carbon Tray Applet for the budgie-desktop
+ Package that installs the Carbon Tray applet for the
+ budgie-desktop.
+ .
+ This is the xembed based system tray applet that was previously
+ available in budgie-desktop v10.7.2
