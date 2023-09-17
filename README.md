@@ -3,7 +3,7 @@ Budgie Applet that displays GtkStatusIcon (xembed) icons
 
 Original source from github.com/buddiesofbudgie/budgie-desktop forked at v10.7.2
 
-![carbon][./screenshots/nemo-carbon.png]
+<img src="./screenshots/nemo-carbon.png"/>
 
 ## Dependencies
 
