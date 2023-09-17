@@ -1,8 +1,0 @@
-[Plugin]
-Module=carbontrayapplet.so
-Name=Carbon Tray
-_Description=System tray using the XEMBED protocol.
-Authors=Budgie Desktop Developers, Ubuntu Budgie Developers
-Copyright=Copyright Budgie Desktop Developers, Ubuntu Budgie Developers
-Website=https://ubuntubudgie.org
-Icon=system-tray
