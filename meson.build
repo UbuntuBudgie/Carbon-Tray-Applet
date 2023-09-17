@@ -35,14 +35,7 @@ custom_target('plugin-file-tray',
     install : true,
     install_dir : applet_tray_dir)
 
-gresource = join_paths(meson.current_source_dir(), 'plugin.gresource.xml')
-
-applet_tray_resources = gnome.compile_resources(
-    'tray-applet-resources',
-    gresource,
-    source_dir: meson.current_source_dir(),
-    c_name: 'budgie_tray',
-)
+subdir('data')
 
 applet_tray_sources = ['CarbonTrayApplet.vala', applet_tray_resources]
 
