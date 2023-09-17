@@ -5,7 +5,7 @@ git submodule init
 git submodule update
 
 VERSION="1.0"
-NAME="budgie-carbon-tray"
+NAME="budgie-carbon-tray-applet"
 git-archive-all.sh --format tar --prefix ${NAME}-${VERSION}/ --verbose -t HEAD ${NAME}-${VERSION}.tar
 xz -9 "${NAME}-${VERSION}.tar"
 
