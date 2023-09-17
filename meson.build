@@ -1,7 +1,7 @@
 project('carbon-tray',
 	['vala', 'c'],
 	version: '0.1',
-	meson_version: '>= 0.40.0'
+	meson_version: '>= 0.60.0'
 )
 
 
@@ -18,7 +18,7 @@ libdir = join_paths(prefix, get_option('libdir'))
 datadir = join_paths(prefix, get_option('datadir'))
 applet_tray_dir = join_paths(libdir, 'budgie-desktop', 'plugins', 'carbon-tray')
 intltool = find_program('intltool-merge')
-podir = join_paths(meson.source_root(), 'po')
+podir = join_paths(meson.project_source_root(), 'po')
 budgie_dep = dependency('budgie-1.0')
 peas_dep = dependency('libpeas-gtk-1.0')
 i18n = import('i18n')
@@ -61,13 +61,26 @@ shared_library(
     dependencies: applet_tray_deps,
     vala_args: [
         '--pkg', 'libpeas-1.0',
-        join_paths(meson.source_root(), 'carbontray', 'carbontray-1.0.vapi'),
+        join_paths(meson.project_source_root(), 'carbontray', 'carbontray-1.0.vapi'),
     ],
     install: true,
     install_dir: applet_tray_dir,
 )
 
 install_data(
-    'org.ubuntubudgie.plugins.tray.gschema.xml',
+    'schema/org.ubuntubudgie.plugins.tray.gschema.xml',
     install_dir: join_paths(datadir, 'glib-2.0', 'schemas'),
 )
+
+#gnome.compile_schemas(build_by_default: true, 
+#    depend_files: 'schema/org.ubuntubudgie.plugins.tray.gschema.xml')
+
+#gnome.post_install(
+#			glib_compile_schemas: true,
+#			gtk_update_icon_cache: true,
+#			update_desktop_database: true
+#		)
+
+gnome.post_install(
+			glib_compile_schemas: true
+		)
