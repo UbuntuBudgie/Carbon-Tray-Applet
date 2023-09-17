@@ -1,6 +1,6 @@
 project('carbon-tray',
 	['vala', 'c'],
-	version: '0.1',
+	version: '1.0',
 	meson_version: '>= 0.60.0'
 )
 
@@ -23,42 +23,10 @@ budgie_dep = dependency('budgie-1.0')
 peas_dep = dependency('libpeas-gtk-1.0')
 i18n = import('i18n')
 
-
-subdir('carbontray')
-
 #applet_tray_dir = applets_dir + '.tray'
 
-custom_target('plugin-file-tray',
-    input : 'CarbonTrayApplet.plugin.in',
-    output : 'CarbonTrayApplet.plugin',
-    command : [intltool, '--desktop-style', podir, '@INPUT@', '@OUTPUT@'],
-    install : true,
-    install_dir : applet_tray_dir)
-
 subdir('data')
-
-applet_tray_sources = ['CarbonTrayApplet.vala', applet_tray_resources]
-
-applet_tray_deps = [
-    budgie_dep,
-    dep_gtk3,
-    dependency('x11'),
-    dependency('gdk-x11-3.0'),
-    peas_dep,
-    link_libcarbontray,
-]
-
-shared_library(
-    'carbontrayapplet',
-    applet_tray_sources,
-    dependencies: applet_tray_deps,
-    vala_args: [
-        '--pkg', 'libpeas-1.0',
-        join_paths(meson.project_source_root(), 'carbontray', 'carbontray-1.0.vapi'),
-    ],
-    install: true,
-    install_dir: applet_tray_dir,
-)
+subdir('src')
 
 install_data(
     'schema/org.ubuntubudgie.plugins.tray.gschema.xml',
